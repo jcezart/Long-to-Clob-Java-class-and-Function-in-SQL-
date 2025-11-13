@@ -6,7 +6,6 @@ import oracle.jdbc.OracleConnection;
 
 public class LongToClob {
 
-  // Converte a 1ª coluna (tipo LONG) do SELECT informado em CLOB temporário
   public static CLOB fromQuery(String sql) throws Exception {
     Connection conn = DriverManager.getConnection("jdbc:default:connection:");
     Statement st = null;
@@ -16,7 +15,6 @@ public class LongToClob {
       rs = st.executeQuery(sql);
       if (!rs.next()) return null;
 
-      // Lê o LONG como String (texto)
       String longData = rs.getString(1);
 
       CLOB out = CLOB.createTemporary((OracleConnection) conn, true, CLOB.DURATION_SESSION);
@@ -33,7 +31,6 @@ public class LongToClob {
     }
   }
 
-  // Versão segura por ROWID (owner.tabela.coluna), evita concatenar filtros grandes
   public static CLOB byRowId(String owner, String table, String column, String rowidChar) throws Exception {
     Connection conn = DriverManager.getConnection("jdbc:default:connection:");
     String sql = "SELECT " + column + " FROM " + owner + "." + table + " WHERE rowid = chartorowid(?)";
@@ -62,3 +59,4 @@ public class LongToClob {
   }
 }
 /
+
