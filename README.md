@@ -1,6 +1,5 @@
 # 🔄 Long-to-CLOB Java Class and PL/SQL Function for Oracle Database
 
-**Autor:** Júlio Cezar Grassi Teixeira  
 **Propósito:** Converter colunas do tipo `LONG` em `CLOB` dentro do Oracle, utilizando Java armazenado (Java Stored Procedure).  
 **Repositório:** [Long-to-Clob-Java-class-and-Function-in-SQL](https://github.com/jcezart/Long-to-Clob-Java-class-and-Function-in-SQL-)
 
@@ -22,7 +21,7 @@ SELECT
 FROM NOME_TABELA
 WHERE ROWNUM = 1;
 
-
+---
 
 
 🧑‍💻 Autor
